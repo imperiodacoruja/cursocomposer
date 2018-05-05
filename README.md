@@ -1,2 +1,50 @@
-# cursocomposer
-This is a composer study library.
+# Email Notification Library using phpMailer
+
+This library has the function of sending e-mail using the phpmailer 
+library. Doing this in an uncomplicated way is essential for any system.
+
+To install the library, run the following command:
+
+```sh
+composer requires fagner_silva / cursocomposer
+```
+
+To make use of the library, simply require the autoload of the composer, 
+invoke the class and make the method call:
+
+```sh
+<? php
+
+require __DIR__. '/vendor/autoload.php';
+
+USE Cursocomposer \ Email;
+
+$ mail = new Email (2, "mail.host.com", "your@email.com", "your-pass", 
+"smtp secure (tls / ssl)", "port (587)","from@email.com", "From Name");
+
+$ email-> sendEmail ("SUbject", "Content", "reply@email.com", "Replay 
+Name", "address@email.com", "Address Name");
+```
+
+Note that the entire configuration of sending the email is using the 
+magic method builder! Once you've invoked the constructor method within 
+your application, your system will be able to fire the shots.
+
+### Developers
+* [Fagner Silva] - CEO and Founder Império da Coruja, developer of this 
+library and tutor of the course Composer in the Practice!
+* [Império da Coruja] - Official Website of Digital Agency.
+* [phpMailer] - Lib to send Email
+
+License
+----
+
+MIT
+
+** One more Império da Coruja course, make good use! **
+
+[//]: #
+[Fagner Silva]: <mailto: contato@imperiodacoruja.com.br>
+[Fagner Silva]: <mailto: comercial@imperiodacoruja.com.br>
+[Império da Coruja]: <https://www.imperiodacoruja.com.br>
+[phpMailer]: <https://github.com/PHPMailer/PHPMailer>
