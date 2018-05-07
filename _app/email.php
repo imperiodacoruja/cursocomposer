@@ -10,23 +10,23 @@ class Email
 
     private $mail = \stdClass::class;
 
-    public function __construct()
+    public function __construct($smtpDebug, $host, $user, $pass, $smtpSecure, $port, $setFromEmail, $setFromName)
     {
         $this->mail = new PHPMailer(true);
         //Server settings
-        $this->mail->SMTPDebug = 2;                                 // Enable verbose debug output
-        $this->mail->isSMTP();                                      // Set mailer to use SMTP
-        $this->mail->Host = 'mail.imperiodacoruja.com.br';  // Specify main and backup SMTP servers
-        $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $this->mail->Username = 'cursos@imperiodacoruja.com.br';                 // SMTP username
-        $this->mail->Password = '*Angra995*';                           // SMTP password
-        $this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $this->mail->Port = 587;                                    // TCP port to connect to
+        $this->mail->SMTPDebug = $smtpDebug;
+        $this->mail->isSMTP();
+        $this->mail->Host = $host;
+        $this->mail->SMTPAuth = true;
+        $this->mail->Username = $user;
+        $this->mail->Password = $pass;
+        $this->mail->SMTPSecure = $smtpSecure;
+        $this->mail->Port = $port;
         $this->mail->CharSet = 'utf-8';
         $this->mail->setLanguage('br');
         $this->mail->isHTML(true);
         //Recipients
-        $this->mail->setFrom('contato@imperiodacoruja.com.br', 'Império da Coruja');
+        $this->mail->setFrom($setFromEmail, $setFromName);
     }
 
     public function sendEmail($subject, $body, $replyEmail, $replyName, $addressEmail, $addressName)
